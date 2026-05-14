@@ -1,0 +1,24 @@
+@model Autor
+<link rel="stylesheet" href="~/css/style.css">
+
+<div class="d-flex flex-row">
+    <img src="~/img/@Model.Imagem" alt="@Model.Nome" width="210px" class="imagemautor">
+    <div class="autorharry">
+        <h1>@Model.Nome</h1>
+        <div><h2>@Model.Nacionalidade</h2></div>
+        <div><h2>@Model.Periodo</h2></div>
+    </div>
+    <div class="obras">
+        <div><h1>Principais obras:</h1></div>
+        <div>
+            @foreach (var obra in Model.Obras)
+            {
+                <img src="~/img/@obra" alt="Obra de @Model.Nome" width="150px" class="imgobras">
+            }
+        </div>
+    </div>
+</div>
+
+<footer class="autorharry2">
+    <h1>@Model.Biografia</h1>
+</footer>

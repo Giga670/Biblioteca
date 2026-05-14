@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="~/css/style.css">
+
+<h2 class="mb-3">Cadastros</h2>
+<p class="mb-4">Escolhe o que queres registar na base de dados.</p>
+
+<div class="d-flex flex-wrap gap-2">
+    <a class="btn btn-primary" asp-controller="Biblioteca" asp-action="CriarLivro">+ Novo livro</a>
+    <a class="btn btn-primary" asp-controller="Biblioteca" asp-action="CriarAutor">+ Novo autor</a>
+    <a class="btn btn-outline-secondary" asp-controller="Biblioteca" asp-action="ListaAutores">Ver autores</a>
+    <a class="btn btn-outline-secondary" asp-controller="Biblioteca" asp-action="Catalogo">Ver catálogo</a>
+</div>

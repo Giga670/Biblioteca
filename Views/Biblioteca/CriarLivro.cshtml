@@ -1,0 +1,51 @@
+@model Biblioteca.Models.Livro
+<link rel="stylesheet" href="~/css/style.css">
+
+<h2>Cadastrar livro</h2>
+
+<form method="post" asp-action="CriarLivro" asp-controller="Biblioteca" class="mb-4">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-2">
+        <label asp-for="Titulo" class="form-label">Título</label>
+        <input asp-for="Titulo" class="form-control" required />
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="Imagem" class="form-label">Ficheiro de imagem (ex.: book.svg)</label>
+        <input asp-for="Imagem" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="IdAutor" class="form-label">Autor registado (opcional)</label>
+        <select asp-for="IdAutor" class="form-select"
+                asp-items="(IEnumerable<SelectListItem>)ViewBag.AutoresItens!">
+        </select>
+    </div>
+    <div class="mb-2">
+        <label asp-for="Autor" class="form-label">Nome do autor (texto)</label>
+        <input asp-for="Autor" class="form-control" placeholder="Se escolher acima, pode ficar igual ou vazio" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="QtdPaginas" class="form-label">Quantidade de páginas</label>
+        <input asp-for="QtdPaginas" class="form-control" type="number" min="0" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="DataPublicacao" class="form-label">Ano de publicação</label>
+        <input asp-for="DataPublicacao" class="form-control" type="number" min="0" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="Genero" class="form-label">Género</label>
+        <input asp-for="Genero" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="Resumo" class="form-label">Resumo</label>
+        <textarea asp-for="Resumo" class="form-control" rows="4"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar na base de dados</button>
+    <a asp-action="Catalogo" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

@@ -1,0 +1,17 @@
+@model Biblioteca.Models.Livro
+<link rel="stylesheet" href="~/css/style.css">
+
+<div class="divsobre d-flex flex-row">
+    <img src="~/img/@Model.Imagem" alt="@Model.Titulo" width="350px" class="maislivro">
+    <div class="sobrelivro"><h1>@Model.Resumo</h1></div>
+</div>
+<div class="tituloharry">
+    <div><h1>@Model.Titulo</h1></div>
+    <div><h1>genero: @Model.Genero</h1></div>
+    <div><h1>autor: @Model.Autor</h1></div>
+</div>
+<div class="botaoautor">
+    <button>
+        <a class="nav-link" asp-area="" asp-controller="Biblioteca" asp-action="AutorDetalhe" asp-route-id="@(Model.IdAutor ?? Model.Id)">Sobre o autor</a>
+    </button>
+</div>

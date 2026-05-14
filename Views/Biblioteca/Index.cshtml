@@ -1,0 +1,38 @@
+@model List<Biblioteca.Models.Livro>
+<link rel="stylesheet" href="~/css/style.css">
+<nav class="divmeio">
+    <H1>Bem-vindo à nossa biblioteca digital, um espaço dedicado ao conhecimento, à leitura e à descoberta. Aqui você
+        encontra uma variedade de livros, desde clássicos da literatura até obras contemporâneas, atendendo a todos os
+        gostos e idades.
+
+        Explore, aprenda e mergulhe em novas histórias. Nosso objetivo é tornar o acesso à leitura mais fácil e
+        inspirador para todos.</H1>
+</nav>
+
+<h1 class="titulo">Biblioteca Smag</h1>
+
+<div class="livros-index">
+    @foreach (var livro in Model)
+    {
+        <div>
+            <a asp-area="" asp-controller="Biblioteca" asp-action="LivroDetalhe" asp-route-id="@livro.Id">
+                <img src="~/img/@livro.Imagem" alt="@livro.Titulo" width="210px">
+                <h3 class="nome">@livro.Titulo</h3>
+            </a>
+        </div>
+    }
+</div>
+<div class="botao">
+    <button>
+        <a class="nav-link" asp-area="" asp-controller="Biblioteca" asp-action="Catalogo">Catalogo
+            Completo</a>
+    </button>
+</div>
+
+<div class="botao">
+    <button>
+        <a class="nav-link" asp-controller="Biblioteca" asp-action="CadastroLivroAutor">
+            + Cadastrar Livro e Autor
+        </a>
+    </button>
+</div>

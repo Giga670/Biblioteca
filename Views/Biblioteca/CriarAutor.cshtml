@@ -1,0 +1,41 @@
+@model Biblioteca.Models.CriarAutorFormModel
+<link rel="stylesheet" href="~/css/style.css">
+
+<h2>Cadastrar autor</h2>
+
+<form method="post" asp-action="CriarAutor" asp-controller="Biblioteca" class="mb-4">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="mb-2">
+        <label asp-for="Nome" class="form-label">Nome</label>
+        <input asp-for="Nome" class="form-control" required />
+        <span asp-validation-for="Nome" class="text-danger"></span>
+    </div>
+    <div class="mb-2">
+        <label asp-for="Nacionalidade" class="form-label">Nacionalidade</label>
+        <input asp-for="Nacionalidade" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="Periodo" class="form-label">Período (ex.: 1965–)</label>
+        <input asp-for="Periodo" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="Imagem" class="form-label">Ficheiro de imagem (ex.: book.svg)</label>
+        <input asp-for="Imagem" class="form-control" />
+    </div>
+    <div class="mb-2">
+        <label asp-for="Biografia" class="form-label">Biografia</label>
+        <textarea asp-for="Biografia" class="form-control" rows="5"></textarea>
+    </div>
+    <div class="mb-2">
+        <label asp-for="ObrasTexto" class="form-label">Obras (uma por linha)</label>
+        <textarea asp-for="ObrasTexto" class="form-control" rows="4" placeholder="Obra 1&#10;Obra 2"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar na base de dados</button>
+    <a asp-action="ListaAutores" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

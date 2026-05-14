@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210" height="300" viewBox="0 0 210 300">
+  <rect width="210" height="300" fill="#69483B" rx="4"/>
+  <rect x="18" y="24" width="174" height="252" fill="#f5f0e8" rx="2"/>
+  <text x="105" y="150" text-anchor="middle" fill="#333" font-family="Georgia,serif" font-size="14">Livro</text>
+</svg>
